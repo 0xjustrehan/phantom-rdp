@@ -2,7 +2,7 @@
 
 > **Next-Generation High-Speed RDP CredSSP/NTLM Credential Sprayer & Active Directory Triager**
 
-`phantom-rdp` is an elite, high-performance RDP Network Level Authentication (NLA) credential spraying engine engineered in modern asynchronous Rust. Built from the ground up to solve the critical limitations, licensing bloat, and operational hurdles of legacy tools like `NLBrute` and `Crowbar`.
+`phantom-rdp` is an elite, high-performance RDP Network Level Authentication (NLA) credential spraying engine engineered in modern asynchronous Rust. Built from the ground up to provide maximum throughput, stealth, and operational efficiency compared to legacy tools like `NLBrute` and `Crowbar`.
 
 Directly integrates with **`phantom-scan`** output lists (`NLA.txt`).
 
@@ -12,7 +12,6 @@ Directly integrates with **`phantom-scan`** output lists (`NLA.txt`).
 
 | Feature | Legacy Sprayers (NLBrute / Hydras) | **`phantom-rdp`** |
 | :--- | :--- | :--- |
-| **Licensing & Restrictions** | Arbitrary license checks, hardware ID hashes, tier restrictions | **100% Unrestricted & Free of Bloat.** Zero license gates. |
 | **Active Directory Lockout Evasion** | Sprays sequential passwords against the same host $\to$ account locked in 3 tries | **Horizontal target spraying** + **Subnet interleaving** + strict **`--max-tries 2`** limit |
 | **Subnet IDS Evasion** | Hammers same IP range repeatedly, tripping IDS/firewalls | **Dynamic `/24` (IPv4) & `/48` (IPv6) subnet interleaving** |
 | **Honeypot Detection** | Floods `good.txt` with fake catch-all daemons (PyRDP, Dionaea) | **Canary authentication traps** disqualify fake RDP daemons |
@@ -143,9 +142,9 @@ phantom-rdp
 
 ---
 
-## 🏗️ Clean Compilation
+## 🏗️ Compilation
 
-Build the standalone binary with full LTO and zero path leaks:
+Build the standalone binary with full LTO:
 ```bash
 cargo build --release
 ```
