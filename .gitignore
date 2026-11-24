@@ -1,0 +1,16 @@
+# Rust build artifacts
+/target
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Spray results and runtime files
+results/
+*.txt
+*.log
+*.state
+
+# OS files
+.DS_Store
+Thumbs.db

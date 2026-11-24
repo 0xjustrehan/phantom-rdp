@@ -1,0 +1,7 @@
+[build]
+rustflags = [
+    "--remap-path-prefix", "C:\\Users\\r3h4n=~",
+    "--remap-path-prefix", "c:\\users\\r3h4n=~",
+    "--remap-path-prefix", "C:/Users/r3h4n=~",
+    "--remap-path-prefix", "c:/users/r3h4n=~"
+]

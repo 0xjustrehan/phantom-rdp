@@ -1,0 +1,51 @@
+[package]
+name = "phantom-rdp"
+version = "1.0.0"
+edition = "2021"
+description = "Next-generation high-speed RDP CredSSP/NTLM credential sprayer with anti-lockout evasion & domain triage"
+
+[dependencies]
+# Async runtime & networking
+tokio = { version = "1", features = ["net", "io-util", "rt", "macros", "time", "rt-multi-thread", "sync", "signal"] }
+tokio-rustls = { version = "0.26", default-features = false, features = ["ring"] }
+rustls = { version = "0.23", default-features = false, features = ["ring", "tls12", "std"] }
+tokio-socks = "0.5"
+tracing = "0.1"
+
+# Cryptography for NTLMv2 & CredSSP
+md4 = "0.10"
+md-5 = "0.10"
+hmac = "0.12"
+rc4 = "0.1"
+ring = "0.17"
+sha2 = "0.10"
+hex = "0.4"
+rand = "0.8"
+
+# ASN.1 and X.509 Parsing for CredSSP Channel Binding
+picky-asn1-x509 = "0.15.4"
+picky-asn1-der = "0.5.6"
+
+# High-performance primitives & concurrency
+mimalloc = "0.1"
+async-channel = "2.3"
+dashmap = "6.0"
+fastrand = "2.1"
+
+# Terminal UI & CLI
+clap = { version = "4", features = ["derive"] }
+indicatif = "0.17"
+chrono = "0.4"
+
+# Serialization & error handling
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+anyhow = "1.0"
+thiserror = "1.0"
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+strip = true
+panic = "abort"
